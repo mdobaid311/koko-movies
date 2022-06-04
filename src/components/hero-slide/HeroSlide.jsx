@@ -36,8 +36,6 @@ const HeroSlide = () => {
   return (
     <div className="hero-slide">
       <Swiper
-        observer={true}
-        observeParents={true}
         modules={[Autoplay]}
         autoplay={{
           delay: 3000,
@@ -45,7 +43,6 @@ const HeroSlide = () => {
         grabCursor={true}
         spaceBetween={0}
         slidesPerView={1}
-        rebuildOnUpdate={true}
       >
         {movieItems.map((item, i) => (
           <SwiperSlide key={i}>
