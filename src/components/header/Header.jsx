@@ -9,7 +9,7 @@ import logo1 from "../../assets/logo1.png";
 
 const headerNav = [
   { display: "Home", path: "/" },
-  { display: "Movies", path: "/movies" },
+  { display: "Movies", path: "/movie" },
   { display: "TV series", path: "/tv" },
 ];
 
