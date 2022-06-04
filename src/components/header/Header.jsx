@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { Link, useLocation } from "react-router-dom";
 
 import "./Header.scss";
 
 import logo from "../../assets/logo.png";
+import logo1 from "../../assets/logo1.png";
 
 const headerNav = [
   { display: "Home", path: "/" },
@@ -15,10 +16,12 @@ const headerNav = [
 const Header = () => {
   const { pathname } = useLocation();
   const headerRef = useRef(null);
+  const [shrink, setShrink] = useState(false)
 
   const active = headerNav.findIndex((e) => {
     return e.path === pathname;
   });
+
 
   useEffect(() => {
     const shrinkHeader = () => {
@@ -27,8 +30,10 @@ const Header = () => {
         document.documentElement.scrollTop > 100
       ) {
         headerRef.current.classList.add("shrink");
+        setShrink(true)
       } else {
         headerRef.current.classList.remove("shrink");
+        setShrink(false)
       }
     };
     window.addEventListener("scroll", shrinkHeader);
@@ -41,7 +46,7 @@ const Header = () => {
     <div ref={headerRef} className="header">
       <div className="header__wrap container">
         <div className="logo">
-          <img src={logo} alt="" />
+          <img src={shrink ? logo1 : logo} alt="" />
           <Link to="/">Koko Movies</Link>
         </div>
         <ul className="header__nav">
