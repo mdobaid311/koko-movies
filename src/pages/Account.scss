@@ -3,6 +3,7 @@
 .content {
   display: flex;
   align-items: center;
+  justify-content: center;
 
   @include mobile {
     flex-direction: column;
@@ -21,7 +22,6 @@
   }
 
   .details {
-    margin-left: 20px;
     .name {
       font-size: xx-large;
       @include mobile {
