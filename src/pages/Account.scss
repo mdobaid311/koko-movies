@@ -1,0 +1,32 @@
+@use "../scss" as *;
+
+.content {
+  display: flex;
+  align-items: center;
+
+  @include mobile {
+    flex-direction: column;
+  }
+  @include tablet {
+    flex-direction: column;
+  }
+
+  img {
+    width: 200px;
+    background: #000;
+    border-radius: 50%;
+    // border: 1px solid black;
+    margin: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  .details {
+    margin-left: 20px;
+    .name {
+      font-size: xx-large;
+      @include mobile {
+        text-align: center;
+      }
+    }
+  }
+}

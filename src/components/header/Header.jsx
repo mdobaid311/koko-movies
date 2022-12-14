@@ -11,17 +11,18 @@ const headerNav = [
   { display: "Home", path: "/" },
   { display: "Movies", path: "/movie" },
   { display: "TV series", path: "/tv" },
+  { display: "Favourites", path: "/favourites" },
+  { display: "Account", path: "/account" },
 ];
 
 const Header = () => {
   const { pathname } = useLocation();
   const headerRef = useRef(null);
-  const [shrink, setShrink] = useState(false)
+  const [shrink, setShrink] = useState(false);
 
   const active = headerNav.findIndex((e) => {
     return e.path === pathname;
   });
-
 
   useEffect(() => {
     const shrinkHeader = () => {
@@ -30,10 +31,10 @@ const Header = () => {
         document.documentElement.scrollTop > 100
       ) {
         headerRef.current.classList.add("shrink");
-        setShrink(true)
+        setShrink(true);
       } else {
         headerRef.current.classList.remove("shrink");
-        setShrink(false)
+        setShrink(false);
       }
     };
     window.addEventListener("scroll", shrinkHeader);
